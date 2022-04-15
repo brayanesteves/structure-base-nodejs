@@ -3,6 +3,7 @@ const dotenv                = require('dotenv');
 const express               = require('express');
 const cors                  = require('cors');
 const app                   = express();
+const path = require('path');
 const { dbConnect_MongoDB } = require('./config/mongo');
 const cookieParser          = require('cookie-parser');
 
@@ -11,7 +12,7 @@ const PORT = process.env.PORT || 3000;
  * Template
  */
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static('app'));
 app.use(cors());
 app.use(express.json());
 
