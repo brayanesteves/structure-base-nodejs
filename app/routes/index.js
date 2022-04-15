@@ -15,7 +15,7 @@ fs.readdirSync(pathRouter).filter((file) => {
     /**
      * Files exclude
      */
-    const skip = ['index'].includes(fileWithOutExt);
+    const skip = ['index', 'views'].includes(fileWithOutExt);
     if (!skip) {
         /**
          * Load functions 'controllers'

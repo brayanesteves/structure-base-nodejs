@@ -2,7 +2,7 @@
   "name": "structure-base-nodejs",
   "version": "0.0.1",
   "description": "Structure Base for project",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
