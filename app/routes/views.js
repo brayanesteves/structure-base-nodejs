@@ -1,6 +1,6 @@
 const express = require('express');
 const checkOrigin = require('../middleware/origin');
-const { getItems, getItem, createItem, updateItem, deleteItem } = require('../controllers/authorization');
+const { getItems, getItem, createItem, updateItem, deleteItem } = require('../controllers/mysql/authorization');
 const views   = express.Router();
 const connect = require('../../config/mysql');
 // Render

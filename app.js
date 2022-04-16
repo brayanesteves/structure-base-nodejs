@@ -3,7 +3,7 @@ const dotenv                = require('dotenv');
 const express               = require('express');
 const cors                  = require('cors');
 const app                   = express();
-const path = require('path');
+const path                  = require('path');
 const { dbConnect_MongoDB } = require('./config/mongo');
 const cookieParser          = require('cookie-parser');
 
@@ -19,7 +19,7 @@ app.use(express.json());
 
 dotenv.config({ path: './env/.env' })
 // Cookies
-app.use(cookieParser);
+//app.use(cookieParser);
 
 
 /**

@@ -2,17 +2,23 @@ const express     = require('express');
 const router      = express.Router();
 const checkOrigin = require('../middleware/origin');
 const { getItems, getItem, createItem, updateItem, deleteItem } = require('../controllers/users');
+const { getUsers, getUser, signup, signin, editUser, deleteUser } = require('../controllers/mysql/authorization');
 
-router.get(      '/', checkOrigin, getItems);
-router.get(   '/:id', checkOrigin, getItem)
-router.get('/:Rfrnc', checkOrigin, getItem);
+router.get('/', getItems);
+router.get(      '/get', signin);
+router.get(   '/:id', getItem)
+router.get('/:Rfrnc', getItem);
 
-router.post('/', checkOrigin, createItem);
+router.get('/profile/:id', getUser);
 
-router.patch(   '/:id', checkOrigin, updateItem);
-router.patch('/:Rfrnc', checkOrigin, updateItem);
+router.post('/', createItem);
+router.post('/register', signup);
+router.post('/login', signin);
 
-router.delete(   '/:id', checkOrigin, deleteItem);
-router.delete('/:Rfrnc', checkOrigin, deleteItem);
+router.patch(   '/:id', updateItem);
+router.patch('/:Rfrnc', updateItem);
+
+router.delete(   '/:id', deleteItem);
+router.delete('/:Rfrnc', deleteItem);
 
 module.exports = router;

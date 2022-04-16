@@ -1,9 +1,113 @@
 const jwt               = require('jsonwebtoken');
 const bcryptjs          = require('bcryptjs');
-const connect           = require('../../config/mysql');
-const { httpError }     = require('../helpers/handleError');
-const userModel_MongoDB = require('../models/mongodb/users');
+const connect           = require('../../../config/mysql');
+const { httpError }     = require('../../helpers/handleError');
 
+
+const getUsers = async (req, res) => {
+    try {
+        console.log(req.body)
+	const { username, password } = req.body
+	const values = [username, password]
+	connect.query("SELECT * FROM 0_Users", values, (err, result) => {
+		if (err) {
+			console.log("ACA")
+			res.status(500).send(err)
+		} else {
+			console.log("ACA 1")
+			if (result.length > 0) {
+				console.log("ACA 2")
+				res.status(200).send({
+					"Rfrnc": result[0].Rfrnc,
+					"username": result[0].username
+				})
+			} else {
+				res.status(400).send('Usuario no existe')
+			}
+		}
+	})
+	connect.end()
+    } catch (e) {
+        httpError(res, e);
+    }
+};
+
+const getUser  = (req, res) => { 
+    try {
+        const { params_id } = req.params
+	console.log(req.params.id);
+	const values = [req.params.id]
+	connect.query("SELECT * FROM 0_Users WHERE Rfrnc = ?", values, (err, result) => {
+		if (err) {
+			res.status(500).send(err)
+		} else {
+			if (result.length > 0) {
+				res.status(200).send({
+					"Rfrnc": req.params.id,
+					"name": result[0].name,
+					"username": result[0].username,
+					"typeuser": result[0].typeuser,
+					"gender": result[0].gender,
+					"email": result[0].email,
+					"password": result[0].password,
+					"terminos": result[0].terminos,
+					"edad": result[0].edad,
+				})
+			} else {
+				res.status(400).send('Usuario no existe')
+			}
+		}
+	})
+    } catch (e) {
+        httpError(res, e);
+    }
+};
+
+const signup = async (req, res) => {
+    try {
+        
+    } catch (e) {
+        httpError(res, e);
+    }
+};
+
+const signin = async (req, res) => {
+    try {
+        const { username, password } = req.body
+        console.log(req.body)
+	const values = [username, password]
+        connect.query("SELECT * FROM 0_Users WHERE username = ? AND password = ?", values, (err, result) => {
+            if (err) {
+                res.status(500).send(err)
+            } else {
+                if (result.length > 0) {
+                    res.status(200).send({
+                        "Rfrnc": result[0].Rfrnc,
+                        "username": result[0].username
+                    })
+                } else {
+                    res.status(400).send('Usuario no existe')
+                }
+            }
+        });
+    } catch (e) {
+        httpError(res, e);
+    }
+};
+
+const editUser = (req, res) => {
+
+};
+
+const deleteUser = (req, res) => {
+
+};
+
+/**
+ *  ================================
+ * |        Request 'Views'         |
+ *  ================================
+ */
 const getItems = async (req, res) => {
     try {
         
@@ -99,4 +203,4 @@ const deleteItem = (req, res) => {
 
 };
 
-module.exports = { getItems, getItem, createItem, updateItem, deleteItem };
+module.exports = { getItems, getItem, createItem, updateItem, deleteItem, getUsers, getUser, signup, signin, editUser, deleteUser };
