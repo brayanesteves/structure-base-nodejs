@@ -19,7 +19,7 @@ app.use(express.json());
 
 dotenv.config({ path: './env/.env' })
 // Cookies
-//app.use(cookieParser);
+app.use(cookieParser);
 
 
 /**

@@ -5,16 +5,27 @@ const views   = express.Router();
 const connect = require('../../config/mysql');
 // Render
 views.get('/', (req, res) => {
-    
-    res.render('index');
+    try {
+        res.render('index');
+    } catch(error) {
+        console.log(error);
+    }
 });
 
 views.get('/login', (req, res) => {
-    res.render('login');
+    try {
+        res.render('login');
+    } catch(error) {
+        console.log(error);
+    }
 });
 
 views.get('/register', (req, res) => {
-    res.render('register');
+    try {
+        res.render('register');
+    } catch(error) {
+        console.log(error);
+    }    
 });
 
 views.get(      '/', getItems);
@@ -22,6 +33,7 @@ views.get(   '/:id', getItem)
 views.get('/:Rfrnc', getItem);
 
 views.post('/register', createItem);
+views.post(   '/login', getItem);
 
 views.patch(   '/:id', checkOrigin, updateItem);
 views.patch('/:Rfrnc', checkOrigin, updateItem);

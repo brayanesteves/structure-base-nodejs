@@ -27,10 +27,23 @@
             </label>
           </div>
           <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-          <button type="button" class="btn btn-lg btn-bd-primary btn-block">Sign Up</button>
+          <a href="/register" class="btn btn-lg btn-bd-primary btn-block">Sign Up</a>
           <p class="mt-5 mb-3 text-muted" id="copyright"></p>
         </form>
     </main>
-    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(alert) { %>
+    <script>
+        Swal.fire({
+                        title: '<%= alertTitle %>',
+                         text: '<%= alertMessage %>',
+                         icon: '<%= alertIcon %>',
+            showConfirmButton: '<%= showConfirmButton %>',
+                        timer: '<%= timer %>'
+        }).then(() => {
+            window.location = '/<%= ruta %>';
+        });;
+    </script>
+    <% } %>
   </body>
 </html>
