@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 app.use(express.static('app'));
 app.use(cors());
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 dotenv.config({ path: './env/.env' })
@@ -30,7 +31,18 @@ app.use('/api/0.0.1', require('./app/routes'));
 app.set('views','./app/views');
 app.use('/', require('./app/routes/views'));
 
-dbConnect_MongoDB();
+switch(process.env.SWITCH_DB) {
+    case "mongodb":
+        dbConnect_MongoDB();
+        break;
+    
+    case "mysql":
+        break;
+    
+    default:
+        break;
+}
+
 app.listen(PORT, () => {
     console.log('API ready for port: ', PORT);
 });

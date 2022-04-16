@@ -15,16 +15,16 @@
 
     <main class="form-signup text-center shadow-lg p-3 ">    
         <div class="container">            
-            <form id="formLogin" class="form-signup" method="POST" action="/register">
+            <form id="formLogin" name="form" class="form-signup" method="POST" action="/register">
               <img class="mb-4" src="assets/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
               <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
               <label for="username" class="sr-only">Username</label>
-              <input type="text" id="username" class="form-control" placeholder="Enter username...">
+              <input type="text" id="username" name="username" class="form-control" placeholder="Enter username...">
               <label for="password" class="sr-only">Password</label>
-              <input type="password" id="password" id="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" id="password" id="password" class="form-control" placeholder="Password">
               
               <a href="/" class="btn btn-secondary" type="submit">Cancel</a>
-              <button type="button" class="btn btn-bd-primary">Sign Up</button>
+              <button type="submit" class="btn btn-bd-primary">Sign Up</button>
               <p class="mt-5 mb-3 text-muted" id="copyright"></p>
             </form>
         </div>    
