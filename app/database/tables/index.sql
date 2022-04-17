@@ -40,6 +40,33 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_UsrsEmls` (
     PRIMARY KEY (`Rfrnc`)
 ) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_UsrsEmls (English: 0 - Users Emails / Spanish: 0 - Correos Electrónicos de Usuarios)';
 
+CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_MssgEmls` (
+    `Rfrnc`        INT(255)     NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
+    `Rfrnc_Usrs`   INT(255)     NOT NULL                COMMENT 'Rfrnc_Usrs   (English: Reference. Users                   / Spanish: Referencia. Usuarios)',
+    `Ttl`          VARCHAR(60)  NOT NULL                COMMENT 'Ttl          (English: Title                              / Spanish: Título)',   
+    `Mssg`         VARCHAR(60)  NOT NULL                COMMENT 'Mssg         (English: Message                            / Spanish: Mensaje)',     
+    `Cndtn`        INT    (2)   NOT NULL                COMMENT 'Cndtn        (English: Condition [0: Inactive, 1: Active] / Spanish: Estado [0: Inactivo, 1: Activo])',
+    `Rmvd`         INT    (2)   NOT NULL                COMMENT 'Rmvd         (English: Removed [0: Inactive, 1: Active]   / Spanish: Eliminado [0: Inactivo, 1: Activo])',
+    `Lckd`         INT    (2)   NOT NULL                COMMENT 'Lckd         (English: Locked [0: Inactive, 1: Active]    / Spanish: Bloqueado [0: Inactivo, 1: Activo])',
+    `DtAdmssn`     DATE             NULL                COMMENT 'DtAdmssn     (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
+    `ChckTm`       TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)',
+    PRIMARY KEY (`Rfrnc`)
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_MssgEmls (English: 0 - Message Emails / Spanish: 0 - Mensajes de Correos Electrónicos)';
+
+CREATE TABLE IF NOT EXISTS `MIPSS_`.`0__MssgEmls` (
+    `Rfrnc`        INT(255)     NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
+    `Rfrnc_Usrs`   INT(255)     NOT NULL                COMMENT 'Rfrnc_Usrs   (English: Reference. Users                   / Spanish: Referencia. Usuarios)',
+    `Ttl`          VARCHAR(60)  NOT NULL                COMMENT 'Ttl          (English: Title                              / Spanish: Título)',   
+    `Mssg`         VARCHAR(60)  NOT NULL                COMMENT 'Mssg         (English: Message                            / Spanish: Mensaje)',     
+    `Clssfctn`     VARCHAR(60)  NOT NULL                COMMENT 'Clssfctn     (English: Classification                     / Spanish: Clasificación',
+    `Cndtn`        INT    (2)   NOT NULL                COMMENT 'Cndtn        (English: Condition [0: Inactive, 1: Active] / Spanish: Estado [0: Inactivo, 1: Activo])',
+    `Rmvd`         INT    (2)   NOT NULL                COMMENT 'Rmvd         (English: Removed [0: Inactive, 1: Active]   / Spanish: Eliminado [0: Inactivo, 1: Activo])',
+    `Lckd`         INT    (2)   NOT NULL                COMMENT 'Lckd         (English: Locked [0: Inactive, 1: Active]    / Spanish: Bloqueado [0: Inactivo, 1: Activo])',
+    `DtAdmssn`     DATE             NULL                COMMENT 'DtAdmssn     (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
+    `ChckTm`       TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)',
+    PRIMARY KEY (`Rfrnc`)
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_MssgEmls (English: 0 - Message Emails / Spanish: 0 - Mensajes de Correos Electrónicos)';
+
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_IntrntPrtcl` (
     `Rfrnc`        INT(255)     NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
     `Rfrnc_Usrs`   INT(255)     NOT NULL                COMMENT 'Rfrnc_Usrs   (English: Reference. Users                   / Spanish: Referencia. Usuarios)',
