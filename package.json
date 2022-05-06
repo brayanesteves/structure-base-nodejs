@@ -2,7 +2,7 @@
   "name": "structure-base-nodejs",
   "version": "0.0.1",
   "description": "Structure Base for project",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,10 +17,17 @@
   },
   "homepage": "https://github.com/brayanesteves/structure-base-nodejs#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.11",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.7.3",
     "multer": "^1.4.4",
     "sharp": "^0.30.4"
   }
