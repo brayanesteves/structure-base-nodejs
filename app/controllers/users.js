@@ -1,5 +1,6 @@
 const { httpError }     = require('../helpers/handleError');
 const userModel_MongoDB = require('../models/mongodb/users');
+const { storage }       = require('../utils/storage');
 
 const getItems = async (req, res) => {
     try {
